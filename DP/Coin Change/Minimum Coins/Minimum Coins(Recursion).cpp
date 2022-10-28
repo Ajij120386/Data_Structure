@@ -22,7 +22,8 @@ int  f(int ind,vector<int>&val,int T)
 return min(take,nottake);
 
 }
-int main(){
+int main()
+{
 
   int n,W,T,x;
   cin>>n>>T;

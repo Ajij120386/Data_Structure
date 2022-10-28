@@ -70,18 +70,48 @@ typedef tree<int, null_type, less<int>, rb_tree_tag,tree_order_statistics_node_u
 #define rall(v) v.rbegin(),v.rend()
 #define fastio ios_base::sync_with_stdio(false); cin.tie(NULL);
 
+int expandFromCentre(string s,int i,int j)
+{
 
+    while(i>=0 && j<s.size() && s[i]==s[j])
+  {
+      i--;
+       j++;
+  }
+
+return j-i-1;
+
+}
 void solve(){
 
-         ll a1,a2,b,r,c,n,m,p,q,x,y,z,s=0,Ts=0,cnt=0,ok=0,ya=0;
-           string st;
-           ci(n);
+         ll a1,a2,b,r,c,n,m,p,q,x,y,z,Ts=0,cnt=0,ok=0,ya=0;
+           string s;
+           ci(s);
 
-       for(int i=0;i<n;i++)
+           int start=0,end=0,len=0;
+       for(int i=0;i<s.size();i++)
     {
-        cin>>x;
-     }
+        int len1=expandFromCentre(s,i,i+1);
+        int len2=expandFromCentre(s,i,i);
+         len=max(len1,len2);
 
+        if(end-start<len)
+       {
+        start=i-(len-1)/2;
+        end=i+len/2;
+        }
+
+    }
+       /*
+        for(int i=start;i<=end;i++){
+            cout<<s[i];
+        }
+        cout<<endl;
+
+        */
+
+        len=end-start+1;
+        cout<<s.substr(start,len)<<endl;
 }
 
 
@@ -90,7 +120,7 @@ int main(){
 
 fastio;
 
-int t,tc=0;
+int t=1,tc=0;
 ci(t);
 
 w(t){
@@ -101,3 +131,4 @@ w(t){
 }
 }
 /*****************  ALHAMDULILLAH  *****************/
+

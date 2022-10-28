@@ -70,22 +70,50 @@ typedef tree<int, null_type, less<int>, rb_tree_tag,tree_order_statistics_node_u
 #define rall(v) v.rbegin(),v.rend()
 #define fastio ios_base::sync_with_stdio(false); cin.tie(NULL);
 
+ ll a,b,r,c,n,m,p,q,x,y,k,z,s=0,cnt=0,ok=0,ya=0;
 
-void solve(){
+ll sum(ll n)
+{
 
-         ll a1,a2,b,r,c,n,m,p,q,x,y,z,s=0,Ts=0,cnt=0,ok=0,ya=0;
-           string st;
-           ci(n);
-
-       for(int i=0;i<n;i++)
-    {
-        cin>>x;
-     }
+    return (n*(n+1))/2;
 
 }
+void solve()
+{
 
 
+           cin>>k;
 
+           ll l=1,r=1e6,mid,ans=-1;
+
+           while(l<=r)
+           {
+               mid=(l+r)/2;
+
+               if(sum(mid)==k)
+               {
+                    ans=mid;
+                    break;
+
+               }
+               else if(sum(mid)>k)
+               {
+                    r=mid-1;
+               }
+                else
+               {
+                    l=mid+1;
+               }
+           }
+
+if(ans==-1)
+
+ cout<<"NAI"<<endl;
+
+    else
+ cout<<ans<<endl;
+
+}
 int main(){
 
 fastio;

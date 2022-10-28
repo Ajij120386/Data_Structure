@@ -70,28 +70,54 @@ typedef tree<int, null_type, less<int>, rb_tree_tag,tree_order_statistics_node_u
 #define rall(v) v.rbegin(),v.rend()
 #define fastio ios_base::sync_with_stdio(false); cin.tie(NULL);
 
-
+int cnt[30][2];
 void solve(){
 
-         ll a1,a2,b,r,c,n,m,p,q,x,y,z,s=0,Ts=0,cnt=0,ok=0,ya=0;
-           string st;
+         ll a,b,r,c,n,m,p,q,t,x,y,z,s=0,ok=0,ya=0;
+           string str;
            ci(n);
 
-       for(int i=0;i<n;i++)
+          vector<int>ar(n+1);
+
+
+
+    for(int i=1;i<=n;i++)
     {
-        cin>>x;
-     }
+        cin>>ar[i];
+
+          for(int j=0;j<30;j++)
+          {
+
+              cnt[j][(ar[i] >> j) & 1]++;
+           }
+    }
+
+       ll ans=0;
+	  for(int i=0;i<=n;i++)
+	 {
+		 ll sum=0;
+
+		    for(int j=0;j<30;j++)
+          {
+               if((ar[i]>>j)&1)  //bcz we know 1^0=1 so if a[i]th bit=1 then we find the total num of 0th bit
+                   sum+=1ll*cnt[j][0]*(1<<j);
+
+		       else    //bcz we know 0^1=1 so if a[i]th bit=0 then we find the total num of 1th bit
+                  sum+=1ll*cnt[j][1]*(1<<j);
+
+        }
+		 ans=max(ans,sum);
+
+	   }
+	cout<<ans<<endl;
 
 }
-
-
-
 int main(){
 
 fastio;
 
-int t,tc=0;
-ci(t);
+int t=1,tc=0;
+//ci(t);
 
 w(t){
 

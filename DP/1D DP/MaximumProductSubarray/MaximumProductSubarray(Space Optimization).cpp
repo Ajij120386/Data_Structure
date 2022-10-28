@@ -70,34 +70,33 @@ typedef tree<int, null_type, less<int>, rb_tree_tag,tree_order_statistics_node_u
 #define rall(v) v.rbegin(),v.rend()
 #define fastio ios_base::sync_with_stdio(false); cin.tie(NULL);
 
+    int maxProduct(vector<int>&nums) {
+        // ma mi technique:
+        int n = nums.size();
+        int ma = nums[0], mi = nums[0], ans = nums[0];
+        for(int i=1;i<n;i++){
+            int ele = nums[i];
+            if(ele < 0) swap(ma, mi);
 
-void solve(){
+            ma = max(ele, ma * ele);
+            mi = min(ele, mi * ele);
 
-         ll a1,a2,b,r,c,n,m,p,q,x,y,z,s=0,Ts=0,cnt=0,ok=0,ya=0;
-           string st;
-           ci(n);
+            ans = max(ans, ma);
+            //cout<<ma<<" "<<mi<<" "<<ans<<endl;
+        }
 
-       for(int i=0;i<n;i++)
-    {
-        cin>>x;
-     }
-
-}
-
-
+        return ans;
+    }
 
 int main(){
 
-fastio;
+  int n,x;
+  cin>>n;
+ vector<int>arr;
+   for(int i=0;i<n;i++){
+  cin>>x;
+     arr.push_back(x);
+  }
 
-int t,tc=0;
-ci(t);
-
-w(t){
-
-   solve();
-
-
-}
-}
-/*****************  ALHAMDULILLAH  *****************/
+cout<<maxProduct(arr)<<endl;
+  }

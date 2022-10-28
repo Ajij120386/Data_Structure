@@ -39,6 +39,32 @@ int a=9;
    else
      cout<<"Not set bit"<<endl;
 
+     /*
+     //count unsetbit
+     int countUnsetBits(int n)
+{
+    int count = 0;
+    for(int i = n; i!=0; i>>=1){
+        if(i & 1)
+            continue;
+        else
+          count++;
+         }
+    return count;
+}
+
+  int countsetBits(int n)
+{
+    int count = 0;
+    for(int i = n; i!=0; i>>=1){
+        if(i & 1)
+          count++;
+         }
+    return count;
+}
+
+*/
+
    /*
        how to set in a bit
 
@@ -188,6 +214,8 @@ int a=9;
     int f=(e&(~((1<<(i+1))-1)));
     printbinary(f);
     /*
+
+
           clear MSB
          a=15= 00001111
          i=1 th bit clear
@@ -202,6 +230,24 @@ int a=9;
            ------------
                00000011
 
+
+     //Finding MSB:
+
+    int bitp(ll v)
+{
+
+    int r = 0;
+
+     while (v >>= 1)
+    {
+        r++;
+    }
+     return r;
+
+}
+or
+using  ind=int m=log2(x);
+//
 
     */
      printbinary(15);

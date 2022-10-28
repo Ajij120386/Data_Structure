@@ -70,18 +70,32 @@ typedef tree<int, null_type, less<int>, rb_tree_tag,tree_order_statistics_node_u
 #define rall(v) v.rbegin(),v.rend()
 #define fastio ios_base::sync_with_stdio(false); cin.tie(NULL);
 
+int f(int ind,vector<int>&cost){
+
+        if(ind==0 || ind==1 )
+                 return 0;
+
+
+        int one =f(ind-1,cost)+ cost[ind-1];
+
+      int  two =f(ind-2,cost)+ cost[ind-2];
+
+
+        return min(one,two);
+    }
 
 void solve(){
 
          ll a1,a2,b,r,c,n,m,p,q,x,y,z,s=0,Ts=0,cnt=0,ok=0,ya=0;
            string st;
-           ci(n);
 
+           ci(n);
+             vector<int>cost(n+1);
        for(int i=0;i<n;i++)
     {
-        cin>>x;
+          cin>>cost[i];
      }
-
+    cout<<f(n,cost)<<endl;
 }
 
 
@@ -90,8 +104,8 @@ int main(){
 
 fastio;
 
-int t,tc=0;
-ci(t);
+int t=1,tc=0;
+//ci(t);
 
 w(t){
 
@@ -101,3 +115,4 @@ w(t){
 }
 }
 /*****************  ALHAMDULILLAH  *****************/
+

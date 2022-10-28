@@ -34,28 +34,36 @@ void primeGen ( int n )
 }
 
 
-long long NOD (long long n)
+long long phi (long long n)
 {
-    long long ret = 1;
-    for ( auto p : prime ) {
-        if ( 1LL * p * p > n ) break;
+    long long ret = n;
+    for ( auto p : prime )
+  {
+        if ( 1LL * p * p > n || n==0 )
+            break;
 
-        if ( n % p == 0 ) {
-            long long cnt = 1;
+        if ( n % p == 0 )
+        {
 
-            while ( n % p == 0 ) {
+               ret/=p;
+              ret*=(p-1);
+
+               while ( n % p == 0 )
+             {
                 n /= p;
-                cnt++;
-            }
 
-            ret *= cnt;
-        }
+              }
+          }
     }
-
-    if ( n > 1 ) ret *= 2;
+    if ( n > 1 )
+    {
+            ret /= n;
+             ret*=(n-1);
+    }
 
     return ret;
 }
+
  int main()
 {
     optimize();
@@ -64,7 +72,8 @@ long long NOD (long long n)
     primeGen(1e6);
     int  n;
     cin>>n;
-     cout<<NOD(n)<<endl;
+     cout<<phi(n)<<endl;
 
       return 0;
 }
+

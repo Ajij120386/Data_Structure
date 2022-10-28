@@ -28,14 +28,20 @@ int main(){
 
   int n,x;
   cin>>n;
+  int arr[n+1];
+   for(int i=0;i<n;i++){
+
+        cin>>arr[i];
+  }
+
    vector<int>arr1,arr2;
 
+ if(n==1) return arr[0];
   for(int i=0;i<n;i++){
-        cin>>x;
         if(i!=n-1)
-         arr1.push_back(x);
+         arr1.push_back(arr[i]);
          if(i!=0)
-         arr2.push_back(x);
+         arr2.push_back(arr[i]);
   }
 
 
